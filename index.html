@@ -7,15 +7,17 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍊</text></svg>">
 
   <!-- Amplitude Browser SDK + Web Experiment — autocapture OFF by default -->
-  <script src="https://cdn.amplitude.com/script/734a984df233bcd13ad217bb7d141cb2.js"></script>
-  <script src="https://cdn.amplitude.com/script/734a984df233bcd13ad217bb7d141cb2.experiment.js"></script>
+  <script src="https://cdn.amplitude.com/script/0346030430b52e0fcecebfbb0113d081.js"></script>
+  <script src="https://cdn.amplitude.com/script/0346030430b52e0fcecebfbb0113d081.experiment.js"></script>
   <script>
     window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));
     window.amplitude.init('734a984df233bcd13ad217bb7d141cb2', {
       fetchRemoteConfig: true,
       autocapture: {
-        elementInteractions: false,
-        pageViews:           false,
+        elementInteractions:     false,
+        pageViews:               false,
+        fileDownloads:           false,
+        formInteractions:        false,
         frustrationInteractions: true
       }
     });
