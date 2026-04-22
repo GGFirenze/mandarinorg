@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mail Mandarin</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍊</text></svg>">
+
+  <!-- Amplitude Browser SDK + Web Experiment — autocapture OFF by default -->
+  <script src="https://cdn.amplitude.com/script/734a984df233bcd13ad217bb7d141cb2.js"></script>
+  <script src="https://cdn.amplitude.com/script/734a984df233bcd13ad217bb7d141cb2.experiment.js"></script>
+  <script>
+    window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));
+    window.amplitude.init('734a984df233bcd13ad217bb7d141cb2', {
+      fetchRemoteConfig: true,
+      autocapture: {
+        elementInteractions: false,
+        pageViews:           false,
+        frustrationInteractions: true
+      }
+    });
+  </script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --orange: #FF7900;
+      --orange-dark: #E56A00;
+      --black: #000000;
+      --white: #FFFFFF;
+      --gray-light: #F6F6F6;
+      --gray-mid: #8F8F8F;
+      --gray-dark: #333333;
+      --radius: 8px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      color: var(--gray-dark);
+      background: var(--white);
+      line-height: 1.5;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      background: var(--black);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-brand {
+      color: var(--orange);
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: .9rem;
+      opacity: .85;
+      transition: opacity .2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+    .hero h1 { font-size: 2.8rem; margin-bottom: .5rem; }
+    .hero p { font-size: 1.2rem; opacity: .9; margin-bottom: 2rem; }
+    .hero .btn-hero {
+      display: inline-block;
+      background: var(--white);
+      color: var(--orange);
+      font-weight: 700;
+      padding: .9rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.05rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .hero .btn-hero:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,.15);
+    }
+    .hero .qr-label {
+      display: block;
+      margin-top: 1.5rem;
+      font-size: .85rem;
+      opacity: .75;
+    }
+
+    /* ─── CARDS ─── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: -3rem auto 3rem;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 2;
+    }
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+      padding: 2rem;
+      text-align: center;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,.12);
+    }
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .card h3 { margin-bottom: .5rem; font-size: 1.1rem; }
+    .card p { color: var(--gray-mid); font-size: .9rem; margin-bottom: 1.2rem; }
+    .card .btn-card {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      padding: .55rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 600;
+      transition: background .2s;
+    }
+    .card .btn-card:hover { background: var(--orange-dark); }
+
+    /* ─── FEATURES ─── */
+    .features {
+      background: var(--gray-light);
+      padding: 4rem 2rem;
+    }
+    .features h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .feature-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .feature-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background: var(--white);
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+    .feature-item h4 { font-size: .95rem; margin-bottom: .25rem; }
+    .feature-item p { font-size: .85rem; color: var(--gray-mid); }
+
+    /* ─── CTA ─── */
+    .cta {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .cta h2 { font-size: 1.6rem; margin-bottom: 1rem; }
+    .cta .btn-cta {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      padding: .8rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: background .2s;
+    }
+    .cta .btn-cta:hover { background: var(--orange-dark); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--black);
+      color: rgba(255,255,255,.6);
+      text-align: center;
+      padding: 2rem;
+      font-size: .8rem;
+    }
+    footer a { color: var(--orange); text-decoration: none; }
+
+    /* ─── AUTOCAPTURE TOGGLE PANEL ─── */
+    .ac-panel {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      font-size: .82rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,.25);
+      z-index: 9999;
+      min-width: 260px;
+    }
+    .ac-panel h4 {
+      color: var(--orange);
+      margin-bottom: .8rem;
+      font-size: .9rem;
+    }
+    .ac-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: .5rem;
+    }
+    .ac-row:last-child { margin-bottom: 0; }
+    .toggle {
+      position: relative;
+      width: 40px;
+      height: 22px;
+    }
+    .toggle input { opacity: 0; width: 0; height: 0; }
+    .toggle .slider {
+      position: absolute;
+      inset: 0;
+      background: #555;
+      border-radius: 22px;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .toggle .slider::before {
+      content: '';
+      position: absolute;
+      width: 16px; height: 16px;
+      left: 3px; bottom: 3px;
+      background: var(--white);
+      border-radius: 50%;
+      transition: transform .2s;
+    }
+    .toggle input:checked + .slider { background: var(--orange); }
+    .toggle input:checked + .slider::before { transform: translateX(18px); }
+    .ac-note {
+      margin-top: .6rem;
+      font-size: .72rem;
+      opacity: .5;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-brand">🍊 Mandarin</a>
+    <div class="nav-links">
+      <a href="#">Accueil</a>
+      <a href="#">Offres Internet</a>
+      <a href="#">Aide &amp; Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Mail Mandarin 🍊</h1>
+    <p>Déjà utilisateur ?</p>
+    <a href="#" class="btn-hero">Accéder à vos mails</a>
+    <span class="qr-label">📱 Téléchargez l'application mobile Mail Mandarin</span>
+  </section>
+
+  <!-- CARDS -->
+  <section class="cards">
+    <div class="card">
+      <div class="card-icon">📬</div>
+      <h3>Gérer vos boîtes mails</h3>
+      <p>Créez et modifiez vos boîtes mails et celles de vos proches</p>
+      <a href="#" class="btn-card">Espace client</a>
+    </div>
+    <div class="card">
+      <div class="card-icon">💡</div>
+      <h3>Obtenir de l'aide</h3>
+      <p>Consultez l'aide à l'usage du Mail Mandarin</p>
+      <a href="#" class="btn-card">Aide et contact</a>
+    </div>
+    <div class="card">
+      <div class="card-icon">🛡️</div>
+      <h3>Sécurité &amp; Confidentialité</h3>
+      <p>Vos données sont protégées et hébergées en France</p>
+      <a href="#" class="btn-card">En savoir plus</a>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <h2>Bénéficiez du Mail Mandarin avec les offres internet *</h2>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">📧</div>
+        <div>
+          <h4>10 boîtes mails</h4>
+          <p>Pour vous et vos proches, d'une capacité de 10 Go chacune</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">📇</div>
+        <div>
+          <h4>Carnet d'adresses</h4>
+          <p>Gérez simplement vos contacts depuis le carnet d'adresses</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">📅</div>
+        <div>
+          <h4>Agenda en ligne</h4>
+          <p>Organisez votre temps comme vous le souhaitez</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🔒</div>
+        <div>
+          <h4>Sécurité garantie</h4>
+          <p>Vos mails sont sécurisés et hébergés en France par Mandarin</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">📦</div>
+        <div>
+          <h4>Option Gigamail</h4>
+          <p>Augmentez la capacité de stockage de vos boîtes mails</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Découvrez nos offres Internet ADSL et Fibre</h2>
+    <a href="#" class="btn-cta">Découvrir les offres internet</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>* Offres internet ADSL et Fibre &mdash; &copy; 2026 Mandarin 🍊 &mdash; <a href="#">Mentions légales</a></p>
+  </footer>
+
+  <!-- AUTOCAPTURE TOGGLE PANEL -->
+  <div class="ac-panel">
+    <h4>🍊 Amplitude Autocapture</h4>
+    <div class="ac-row">
+      <span>Page Views</span>
+      <label class="toggle">
+        <input type="checkbox" id="toggle-pv">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="ac-row">
+      <span>Element Interactions</span>
+      <label class="toggle">
+        <input type="checkbox" id="toggle-ei">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="ac-note">
+      Session Replay, Heatmaps &amp; Web Experiment<br>
+      work without autocapture. Toggle ON for Zoning Analysis.
+    </div>
+  </div>
+
+  <script>
+    const togglePV = document.getElementById('toggle-pv');
+    const toggleEI = document.getElementById('toggle-ei');
+
+    function applyAutocapture() {
+      const pv = togglePV.checked;
+      const ei = toggleEI.checked;
+
+      /*
+       * Re-initialising is the clean way to flip autocapture at runtime.
+       * amplitude.setOptOut → init cycle ensures the new config takes effect.
+       */
+      window.amplitude.setOptOut(true);
+      window.amplitude.init('734a984df233bcd13ad217bb7d141cb2', {
+        fetchRemoteConfig: true,
+        autocapture: {
+          elementInteractions: ei,
+          pageViews:           pv
+        }
+      });
+      window.amplitude.setOptOut(false);
+
+      console.log(
+        `[Mandarin] autocapture → pageViews: ${pv}, elementInteractions: ${ei}`
+      );
+    }
+
+    togglePV.addEventListener('change', applyAutocapture);
+    toggleEI.addEventListener('change', applyAutocapture);
+
+    /* ── Manual click tracking for all interactive buttons ── */
+    const trackables = [
+      { sel: '.btn-hero',                        event: 'CTA Clicked', props: { label: 'Accéder à vos mails', section: 'hero' }},
+      { sel: '.cards .card:nth-child(1) .btn-card', event: 'CTA Clicked', props: { label: 'Espace client',       section: 'cards' }},
+      { sel: '.cards .card:nth-child(2) .btn-card', event: 'CTA Clicked', props: { label: 'Aide et contact',     section: 'cards' }},
+      { sel: '.cards .card:nth-child(3) .btn-card', event: 'CTA Clicked', props: { label: 'En savoir plus',      section: 'cards' }},
+      { sel: '.btn-cta',                          event: 'CTA Clicked', props: { label: 'Découvrir les offres',  section: 'cta' }},
+    ];
+
+    trackables.forEach(({ sel, event, props }) => {
+      const el = document.querySelector(sel);
+      if (el) {
+        el.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.amplitude.track(event, props);
+          console.log(`[Mandarin] tracked "${event}"`, props);
+        });
+      }
+    });
+
+    document.querySelectorAll('.nav-links a').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const label = a.textContent.trim();
+        window.amplitude.track('Nav Link Clicked', { label });
+        console.log(`[Mandarin] tracked "Nav Link Clicked"`, { label });
+      });
+    });
+  </script>
+
+</body>
+</html>
